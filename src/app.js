@@ -12,7 +12,6 @@ app.use(cors());
 app.use(routes);
 connection();
 
-
 app.listen(PORT, ()=> {
   console.log(`Servidor rondado...`);
 });
