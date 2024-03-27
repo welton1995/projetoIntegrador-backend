@@ -13,5 +13,5 @@ app.use(routes);
 connection();
 
 app.listen(PORT, ()=> {
-  console.log(`Servidor rondado...`);
+  console.log(`Servidor rondado na porta ${PORT}`);
 });
