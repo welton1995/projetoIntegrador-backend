@@ -13,6 +13,24 @@ const entradaController = {
     }
   },
 
+  async listarData(req, res) {
+    try {
+      const { inicio, fim } = req.body;
+      const entradas = await Entrada.find({
+        data: {
+          $gte: inicio, // $gte significa "greater than or equal to" (maior ou igual a)
+          $lte: fim     // $lte significa "less than or equal to" (menor ou igual a)
+        }
+      });
+
+      res.status(200).json( entradas );
+      
+    } catch (error) {
+      console.log(error);
+      res.status(400).send(error.message);
+    }
+  },
+
   async cadastrar(req, res) {
     try {
       const { matricula, data, observacao } = req.body;

@@ -22,7 +22,5 @@ const matriculaSchema = new mongoose.Schema({
     required: true,
   },
 });
-
 const Matricula = mongoose.model("Matricula", matriculaSchema);
-
 module.exports = Matricula;
