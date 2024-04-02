@@ -16,7 +16,8 @@ routes.delete('/matriculas/:id', matriculaController.remover); // Remover
 routes.get('/entradas', entradaController.listar); // Listar
 routes.get('/entradas/semana', entradaController.listarSemana); // Listar ultima semana
 routes.get('/entradas/mes', entradaController.listarMes); // Listar ultimo mes
-routes.post('/entradas/data', entradaController.listarData); // ListarData
+routes.get('/entradas/ano', entradaController.listarAno); // Listar ultimo ano
+routes.post('/entradas/data', entradaController.listarData); // Listar Data especifica
 routes.post('/entradas', entradaController.cadastrar); // Criar
 routes.put('/entradas/:id', entradaController.atualizar); // Atualizar
 routes.delete('/entradas/:id', entradaController.remover); // Remover

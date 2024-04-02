@@ -60,6 +60,20 @@ const entradaController = {
     }
   },
 
+  async listarAno(req, res) {
+    try {
+      const mes = new Date(); // Data atual
+      mes.setDate(mes.getDate() - 365); // Subtrai 1 ano da data atual
+      const entradas = await Entrada.find({   
+        data: { $gte: mes, $lte: new Date() } // Pesquisa por registros dentro do ultimo mes
+        });
+
+        res.status(200).json(entradas);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
   async cadastrar(req, res) {
     try {
       const { matricula, data, observacao } = req.body;
