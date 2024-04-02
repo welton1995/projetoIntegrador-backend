@@ -31,6 +31,35 @@ const entradaController = {
     }
   },
 
+  async listarSemana(req, res) {
+    try {
+      const semana = new Date(); // Data atual
+      semana.setDate(semana.getDate() - 7); // Subtrai 7 dias da data atual
+
+      const entradas = await Entrada.find({   
+        data: { $gte: semana, $lte: new Date() } // Pesquisa por registros dentro da última semana
+        });
+
+        res.status(200).json(entradas);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  async listarMes(req, res) {
+    try {
+      const mes = new Date(); // Data atual
+      mes.setDate(mes.getDate() - 30); // Subtrai 1 mes da data atual
+      const entradas = await Entrada.find({   
+        data: { $gte: mes, $lte: new Date() } // Pesquisa por registros dentro do ultimo mes
+        });
+
+        res.status(200).json(entradas);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
   async cadastrar(req, res) {
     try {
       const { matricula, data, observacao } = req.body;
