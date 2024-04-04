@@ -19,7 +19,7 @@ const entradaController = {
       const entradas = await Entrada.find({
         data: {
           $gte: inicio, // $gte significa "greater than or equal to" (maior ou igual a)
-          $lte: fim++     // $lte significa "less than or equal to" (menor ou igual a)
+          $lte: fim     // $lte significa "less than or equal to" (menor ou igual a)
         }
       });
 
